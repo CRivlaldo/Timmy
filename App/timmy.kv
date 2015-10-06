@@ -1,0 +1,218 @@
+#:kivy 1.8.0
+#:import ListAdapter kivy.adapters.listadapter.ListAdapter
+#:import ListItemButton kivy.uix.listview.ListItemButton
+#:import Graph kivy.garden.graph.Graph
+#:import TimmyScreenManager timmyscreenmanager.TimmyScreenManager
+#:import CalibrationWindow calibration.calibrationwindow.CalibrationWindow
+#:import CameraWindow camerawindow.CameraWindow
+#:import track_manager dancing.trackmanager.track_manager
+#:import PlaybackWindow dancing.playbackwindow.PlaybackWindow
+#:import ServoSettingsWindow dancing.servosettingswindow.ServoSettingsWindow
+#:import DancingWindow dancing.dancingwindow.DancingWindow
+#:import RecognitionDebugWindow nimgame.recognitiondebugwindow.RecognitionDebugWindow
+#:import CalibrationWindow nimgame.nimgamewindow.NimGameWindow
+
+
+################################################### MAIN MENU ##########################################################
+
+
+<MainMenuButton@Button>:
+    size_hint: 0.12, 0.12
+    on_press:
+        self.parent.parent.parent.current = self.text
+
+<MainScreen@Screen>:
+    name: 'Main Screen'
+    text: 'Main Screen'
+    GridLayout:
+        cols: 4
+        rows: 4
+        MainMenuButton:
+            text: "Calibration"
+        MainMenuButton:
+            text: "Dancing"
+        MainMenuButton:
+            text: "The Nim Game"
+
+
+################################################## COMMON STUFF ########################################################
+
+<CameraWindow>:
+    camera: app.camera
+
+############################################### CALIBRATION WINDOW #####################################################
+
+<CalibrationWindow>:
+    name: 'Calibration'
+    text: 'Calibration'
+    on_enter: self.on_show()
+    on_leave: self.on_hide()
+    GridLayout:
+        id: root_grid
+        cols: 2
+        CameraWindow:
+            id: camera_window
+            size: 640, 480
+        BoxLayout:
+            id: device_info_grid
+            orientation: 'vertical'
+            Label:
+                id: device_info
+            Button:
+                id: timmy_button
+                text: 'Timmy!'
+                on_press: self.parent.parent.parent.on_timmy_button_press()
+        GridLayout:
+            id: sliders_grid
+            cols: 2
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                id: ok_button
+                text: 'OK'
+                on_press: self.parent.parent.parent.on_ok_button_press()
+            Button:
+                id: exit_button
+                text: 'Exit'
+                on_press: self.parent.parent.parent.on_exit_button_press()
+
+
+#################################################### DANCING ###########################################################
+
+
+<BandsGraph>:
+    xlabel: 't'
+    ylabel: 'V'
+    x_ticks_minor: 1
+    x_ticks_major: 10
+    y_ticks_major: 1000
+    y_grid_label: True
+    x_grid_label: True
+    padding: 5
+    x_grid: False
+    y_grid: False
+    xmin: -0
+    xmax: 32768
+    ymin: -32768
+    ymax: 32767
+
+<PlaybackWindow>:
+    orientation: 'vertical'
+    BandsGraph:
+        id: graph
+    Slider:
+        id: seek_bar
+        size_hint: 1, 0.1
+        min: 0
+        max: 100
+        value: 0
+
+
+<ServoSettingsWindow>:
+    cols: 6
+
+
+<DancingWindow>:
+    name: 'Dancing'
+    text: 'Dancing'
+    on_enter: self.on_show()
+    on_leave: self.on_hide()
+    BoxLayout:
+        id: dancing_window_root_layout
+        orientation: 'vertical'
+        PlaybackWindow:
+            id: playback_group
+        BoxLayout:
+            id: dancing_window_bottom
+            orientation: 'horizontal'
+            BoxLayout:
+                id: buttons_and_track_list
+                orientation: 'vertical'
+                BoxLayout:
+                    id: buttons_group
+                    orientation: 'horizontal'
+                    size_hint: 1, 0.2
+                    Button:
+                        id: button_play
+                        text: 'Play'
+                        on_press: self.parent.parent.parent.parent.parent.on_play_button_press()
+                    Button:
+                        id: button_stop
+                        text: 'Stop'
+                        disabled: True
+                        on_press: self.parent.parent.parent.parent.parent.on_stop_button_press()
+                    Button:
+                        id: button_exit
+                        text: 'Exit'
+                        on_press: self.parent.parent.parent.parent.parent.on_exit_button_press()
+                BoxLayout:
+                    id: tracks_group
+                    orientation: 'vertical'
+                    Label:
+                        text: 'Tracks:'
+                        size_hint: 1, 0.1
+                    ListView:
+                        id: track_list
+                        adapter:
+                            ListAdapter(data=track_manager.items,
+                            args_converter=track_manager.args_converter,
+                            cls=ListItemButton,
+                            selection_mode='single',
+                            allow_empty_selection=False)
+            ServoSettingsWindow:
+                id: settings_group
+
+
+################################################### Nim Game ###########################################################
+
+
+<RecognitionDebugWindow>:
+    camera: app.camera
+
+#  ToDo: align buttons
+<NimGameWindow>:
+    name: 'The Nim Game'
+    text: 'The Nim Game'
+    on_enter: self.on_show()
+    on_leave: self.on_hide()
+    GridLayout:
+        id: root_grid
+        cols: 2
+        BoxLayout:
+            orientation: 'vertical'
+            Button:
+                id: start
+                text: 'Start'
+                size_hint: 0.8, 0.2
+                on_press: self.parent.parent.parent.on_start_button_press()
+            Button:
+                id: stop
+                text: 'Stop'
+                size_hint: 0.8, 0.2
+                on_press: self.parent.parent.parent.on_stop_button_press()
+            Button:
+                id: start
+                text: 'Exit'
+                size_hint: 0.8, 0.2
+                on_press: self.parent.parent.parent.on_exit_button_press()
+        CameraWindow:
+            id: camera_window
+            size: 640, 480
+        RecognitionDebugWindow:
+            id: recognition_debug_window
+            size: 640, 480
+        CameraWindow:
+            id: temp_camera_window
+            size: 640, 480
+
+###################################################### APP #############################################################
+
+<TimmyScreenManager>:
+
+
+TimmyScreenManager:
+    id: screen_manager
+    MainScreen:
+    CalibrationWindow:
+    DancingWindow:
+    NimGameWindow:

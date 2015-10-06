@@ -1,0 +1,178 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\vladimir\MyProjects\Timmy\Embedded\Timmy.uvproj
+Project File Date:  03/29/2015
+
+<h2>Output:</h2>
+Rebuild target 'Target'
+compiling hw_config.c...
+.\inc\led.h(11): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  void Led_Init();
+.\inc\led.h(19): warning:  #1295-D: Deprecated declaration LED_SysTick_Handler - give arg types
+  void LED_SysTick_Handler();
+.\inc\led.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\inc\servo.h(10): warning:  #1295-D: Deprecated declaration Servo_Init - give arg types
+  void Servo_Init();
+.\inc\servo.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+src\hw_config.c: 5 warnings, 0 errors
+compiling led.c...
+.\inc\led.h(11): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  void Led_Init();
+.\inc\led.h(19): warning:  #1295-D: Deprecated declaration LED_SysTick_Handler - give arg types
+  void LED_SysTick_Handler();
+.\inc\led.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+src\led.c(185): warning:  #1-D: last line of file ends without a newline
+  }
+src\led.c: 4 warnings, 0 errors
+compiling main.c...
+src\main.c(7): warning:  #9-D: nested comment is not allowed
+  /* Includes ------------------------------------------------------------------*/
+.\inc\user_usb.h(20): warning:  #1295-D: Deprecated declaration usb_handle_command - give arg types
+  int usb_handle_command();
+.\inc\led.h(11): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  void Led_Init();
+.\inc\led.h(19): warning:  #1295-D: Deprecated declaration LED_SysTick_Handler - give arg types
+  void LED_SysTick_Handler();
+.\inc\led.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+src\main.c(19): warning:  #1295-D: Deprecated declaration printboard - give arg types
+  void printboard();
+src\main.c(28): warning:  #223-D: function "InitCOM" declared implicitly
+      InitCOM();
+src\main.c: 7 warnings, 0 errors
+compiling servo.c...
+.\inc\servo.h(10): warning:  #1295-D: Deprecated declaration Servo_Init - give arg types
+  void Servo_Init();
+.\inc\servo.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+src\servo.c(123): warning:  #1-D: last line of file ends without a newline
+  }
+src\servo.c: 3 warnings, 0 errors
+compiling stm32f10x_it.c...
+src\stm32f10x_it.c(10): warning:  #9-D: nested comment is not allowed
+  /* Includes ------------------------------------------------------------------*/
+.\inc\led.h(11): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  void Led_Init();
+.\inc\led.h(19): warning:  #1295-D: Deprecated declaration LED_SysTick_Handler - give arg types
+  void LED_SysTick_Handler();
+.\inc\led.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+src\stm32f10x_it.c(49): warning:  #223-D: function "printf" declared implicitly
+    printf("Hard fault!\r\n");
+src\stm32f10x_it.c(65): warning:  #223-D: function "printf" declared implicitly
+    printf("MemManage fault!\r\n");
+src\stm32f10x_it.c(81): warning:  #223-D: function "printf" declared implicitly
+    printf("Bus fault!\r\n");
+src\stm32f10x_it.c(97): warning:  #223-D: function "printf" declared implicitly
+    printf("Usage fault!\r\n");
+src\stm32f10x_it.c: 8 warnings, 0 errors
+compiling usb_desc.c...
+compiling usb_endp.c...
+.\inc\user_usb.h(20): warning:  #1295-D: Deprecated declaration usb_handle_command - give arg types
+  int usb_handle_command();
+src\usb_endp.c: 1 warning, 0 errors
+compiling usb_istr.c...
+compiling usb_prop.c...
+compiling usb_pwr.c...
+compiling user_usb.c...
+.\inc\user_usb.h(20): warning:  #1295-D: Deprecated declaration usb_handle_command - give arg types
+  int usb_handle_command();
+.\inc\led.h(11): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  void Led_Init();
+.\inc\led.h(19): warning:  #1295-D: Deprecated declaration LED_SysTick_Handler - give arg types
+  void LED_SysTick_Handler();
+.\inc\led.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\inc\servo.h(10): warning:  #1295-D: Deprecated declaration Servo_Init - give arg types
+  void Servo_Init();
+.\inc\servo.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+src\user_usb.c(93): warning:  #111-D: statement is unreachable
+                        break;
+src\user_usb.c(98): warning:  #940-D: missing return statement at end of non-void function "usb_handle_command"
+  }
+src\user_usb.c(23): warning:  #177-D: variable "command_id_ptr" was declared but never referenced
+        uint16_t *command_id_ptr;
+src\user_usb.c: 9 warnings, 0 errors
+compiling otgd_fs_cal.c...
+compiling otgd_fs_dev.c...
+compiling otgd_fs_int.c...
+compiling otgd_fs_pcd.c...
+compiling usb_core.c...
+compiling usb_init.c...
+compiling usb_int.c...
+compiling usb_mem.c...
+compiling usb_regs.c...
+compiling usb_sil.c...
+compiling misc.c...
+compiling stm32f10x_dma.c...
+compiling stm32f10x_exti.c...
+compiling stm32f10x_flash.c...
+compiling stm32f10x_fsmc.c...
+compiling stm32f10x_gpio.c...
+compiling stm32f10x_rcc.c...
+compiling stm32f10x_sdio.c...
+compiling stm32f10x_spi.c...
+compiling stm32f10x_tim.c...
+compiling stm32f10x_usart.c...
+assembling startup_stm32f10x_ld.s...
+compiling core_cm3.c...
+compiling system_stm32f10x.c...
+linking...
+Program Size: Code=8348 RO-data=432 RW-data=400 ZI-data=1056  
+FromELF: creating hex file...
+".\Output\Timmy.axf" - 0 Error(s), 37 Warning(s).
+</pre>
+</body>
+</html>
+eprecated declaration Led_Init - give arg types
+  void Led_Init();
+.\inc\led.h(19): warning:  #1295-D: Deprecated declaration LED_SysTick_Handler - give arg types
+  void LED_SysTick_Handler();
+.\inc\led.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+src\stm32f10x_it.c(49): warning:  #223-D: function "printf" declared implicitly
+    printf("Hard fault!\r\n");
+src\stm32f10x_it.c(65): warning:  #223-D: function "printf" declared implicitly
+    printf("MemManage fault!\r\n");
+src\stm32f10x_it.c(81): warning:  #223-D: function "printf" declared implicitly
+    printf("Bus fault!\r\n");
+src\stm32f10x_it.c(97): warning:  #223-D: function "printf" declared implicitly
+    printf("Usage fault!\r\n");
+src\stm32f10x_it.c: 11 warnings, 0 errors
+compiling user_usb.c...
+.\inc\user_usb.h(20): warning:  #1295-D: Deprecated declaration usb_handle_command - give arg types
+  int usb_handle_command();
+.\inc\led.h(11): warning:  #1295-D: Deprecated declaration Led_Init - give arg types
+  void Led_Init();
+.\inc\led.h(19): warning:  #1295-D: Deprecated declaration LED_SysTick_Handler - give arg types
+  void LED_SysTick_Handler();
+.\inc\led.h(21): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\inc\servo.h(10): warning:  #1295-D: Deprecated declaration Servo_Init - give arg types
+  void Servo_Init();
+.\inc\servo.h(13): warning:  #1-D: last line of file ends without a newline
+  #endif
+.\inc\platform_config.h(123): warning:  #47-D: incompatible redefinition of macro "SERVO1_GPIO_PIN" (declared at line 118)
+        #define SERVO1_GPIO_PIN                                 GPIO_Pin_1
+.\inc\platform_config.h(128): warning:  #47-D: incompatible redefinition of macro "SERVO1_GPIO_PIN" (declared at line 123)
+        #define SERVO1_GPIO_PIN                                 GPIO_Pin_2
+.\inc\platform_config.h(133): warning:  #47-D: incompatible redefinition of macro "SERVO1_GPIO_PIN" (declared at line 128)
+        #define SERVO1_GPIO_PIN                                 GPIO_Pin_3
+src\user_usb.c(93): warning:  #111-D: statement is unreachable
+                        break;
+src\user_usb.c(98): warning:  #940-D: missing return statement at end of non-void function "usb_handle_command"
+  }
+src\user_usb.c(23): warning:  #177-D: variable "command_id_ptr" was declared but never referenced
+        uint16_t *command_id_ptr;
+src\user_usb.c: 12 warnings, 0 errors
+linking...
+Program Size: Code=8348 RO-data=432 RW-data=364 ZI-data=1052  
+FromELF: creating hex file...
+".\Timmy.axf" - 0 Error(s), 54 Warning(s).
