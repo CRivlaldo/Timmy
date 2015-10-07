@@ -11,6 +11,8 @@
 #:import DancingWindow dancing.dancingwindow.DancingWindow
 #:import RecognitionDebugWindow nimgame.recognitiondebugwindow.RecognitionDebugWindow
 #:import CalibrationWindow nimgame.nimgamewindow.NimGameWindow
+#:import NimGameBoard nimgame.nimgameboard.NimGameBoard
+#:import NimGamePole nimgame.nimgameboard.NimGamePole
 
 
 ################################################### MAIN MENU ##########################################################
@@ -169,6 +171,20 @@
 <RecognitionDebugWindow>:
     camera: app.camera
 
+
+<NimGamePole>:
+
+
+<NimGameBoard>:
+    orientation: 'vertical'
+    Label:
+        id: label_move
+        text: "Move: player"
+        size_hint: 0.8, 0.2
+    NimGamePole:
+        id: pole
+
+
 #  ToDo: align buttons
 <NimGameWindow>:
     name: 'The Nim Game'
@@ -191,7 +207,7 @@
                 size_hint: 0.8, 0.2
                 on_press: self.parent.parent.parent.on_stop_button_press()
             Button:
-                id: start
+                id: exit
                 text: 'Exit'
                 size_hint: 0.8, 0.2
                 on_press: self.parent.parent.parent.on_exit_button_press()
@@ -201,9 +217,8 @@
         RecognitionDebugWindow:
             id: recognition_debug_window
             size: 640, 480
-        CameraWindow:
-            id: temp_camera_window
-            size: 640, 480
+        NimGameBoard:
+            id: nim_game_board
 
 ###################################################### APP #############################################################
 
